@@ -18,12 +18,12 @@
         app:layout_constraintVertical_bias="0.125"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/frontpagebg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/blue_modern_airplane_login_page_wireframe_mobile_prototype__1_"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:srcCompat="@drawable/frontpagebg"
+        android:scaleType="centerCrop"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
