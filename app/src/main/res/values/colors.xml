@@ -4,6 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lightblue">#00CFEE</color>
     <color name="navyblue">#01122E</color>
+    <color name="dark">#1A1A1C</color>
+    <color name="violet">#957AB5</color>
+
+
 
 
 </resources>

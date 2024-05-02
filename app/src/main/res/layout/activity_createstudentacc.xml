@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".createstudentacc"
+    android:background="#E9E8E9">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/createstudaccbg"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/textCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new"
+        android:textColor="@color/lightblue"
+        android:fontFamily="@font/aileron_bold"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:textColor="@color/lightblue"
+        android:fontFamily="@font/aileron_bold"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCreate"
+        android:layout_marginStart="18dp"/>
+
+    <TextView
+        android:id="@+id/forgotpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already registered? Login here."
+        android:textColor="@color/lightblue"
+        android:textFamily="@font/montserrat_regular"
+        android:background="@drawable/button_color_hover"
+        android:textSize="12sp"
+        android:padding="3dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAccount"
+        android:layout_marginStart="18dp"/>
+
+    <TextView
+        android:id="@+id/createTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="NAME"
+        android:textColor="@color/dark"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forgotpass"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="50dp"/>
+
+    <EditText
+        android:id="@+id/createStudUser"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_box_bg"
+        android:hint="Full Name"
+        android:textSize="13sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/createTextName" />
+
+    <TextView
+        android:id="@+id/createTextEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="EMAIL"
+        android:textColor="@color/dark"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createStudUser"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="50dp"/>
+
+    <EditText
+        android:id="@+id/createEmail"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_box_bg"
+        android:hint="email"
+        android:textSize="13sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:inputType="textEmailAddress"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/createTextEmail" />
+
+    <TextView
+        android:id="@+id/createTextStudNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="STUDENT NUMBER"
+        android:textColor="@color/dark"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createEmail"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="50dp"/>
+
+    <EditText
+        android:id="@+id/createStudNum"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_box_bg"
+        android:hint="student number"
+        android:textSize="13sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/createTextStudNum" />
+
+    <TextView
+        android:id="@+id/createTextSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="SECTION"
+        android:textColor="@color/dark"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createStudNum"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="50dp"/>
+
+    <EditText
+        android:id="@+id/createSection"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_box_bg"
+        android:hint="section"
+        android:textSize="13sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/createTextSection"/>
+
+    <TextView
+        android:id="@+id/createTextPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="PASSWORD"
+        android:textColor="@color/dark"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createSection"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="50dp"/>
+
+    <EditText
+        android:id="@+id/createPassword"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_box_bg"
+        android:hint="password"
+        android:inputType="textVisiblePassword"
+        android:textSize="13sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/createTextPass"/>
+
+    <TextView
+        android:id="@+id/createTextRePass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="RETYPE PASSWORD"
+        android:textColor="@color/dark"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createPassword"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="50dp"/>
+
+    <EditText
+        android:id="@+id/createRePassword"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_box_bg"
+        android:hint="retype password"
+        android:inputType="textVisiblePassword"
+        android:textSize="13sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/createTextRePass" />
+
+    <ImageView
+        android:id="@+id/mic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/mic"
+        app:layout_constraintTop_toBottomOf="@+id/createRePassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/createInputVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="INPUT VOICE"
+        android:textColor="@color/navyblue"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mic"
+        android:layout_marginTop="7dp"/>
+
+    <View
+        android:id="@+id/recViolet"
+        android:layout_width="0dp"
+        android:layout_height="98dp"
+        android:background="@drawable/violet_bottom_create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/registerStudButton"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:text="REGISTER"
+        android:fontFamily="@font/aileron_bold"
+        android:textColor="@color/navyblue"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toTopOf="@id/recViolet"
+        app:layout_constraintStart_toStartOf="@id/recViolet"
+        app:layout_constraintEnd_toEndOf="@id/recViolet"
+        android:layout_marginTop="25.5dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
