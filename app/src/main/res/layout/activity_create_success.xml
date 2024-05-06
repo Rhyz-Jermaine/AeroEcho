@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".createstudentacc"
+    tools:context=".createSuccess"
     android:background="@color/dirtywhite">
 
     <ImageView
@@ -262,7 +262,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_regular"
-        android:text="INPUT VOICE"
+        android:text="VOICE INPUT SUCCESSFUL"
         android:textColor="@color/lightblue"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -286,7 +286,7 @@
         android:text="REGISTER"
         android:fontFamily="@font/aileron_bold"
         android:textColor="@color/navyblue"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/lightblue"
         app:layout_constraintTop_toTopOf="@id/recViolet"
         app:layout_constraintStart_toStartOf="@id/recViolet"
         app:layout_constraintEnd_toEndOf="@id/recViolet"

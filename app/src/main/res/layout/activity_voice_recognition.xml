@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".voiceRecognition"
+    android:background="@color/navyblue">
+
+
+    <ImageView
+        android:id="@+id/voiceInput"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:srcCompat="@drawable/voiceinput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <TextView
+        android:id="@+id/textSay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Say the written text clearly"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voiceInput"
+        android:layout_marginTop="10dp"/>
+
+    <View
+        android:id="@+id/shapeBlue"
+        android:layout_width="250dp"
+        android:layout_height="260dp"
+        android:background="@drawable/shape_lightblue"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        app:layout_constraintTop_toBottomOf="@id/textSay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textReco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="“Columbia Ground, Cessna Three One Six Zero Foxtrot, south ramp, I-F-R Memphis.”"
+        android:paddingStart="110dp"
+        android:paddingEnd="110dp"
+        android:textAlignment="center"
+        android:textColor="@color/navyblue"
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintTop_toTopOf="@id/shapeBlue"
+        app:layout_constraintStart_toStartOf="@id/shapeBlue"
+        app:layout_constraintEnd_toEndOf="@id/shapeBlue"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/forgotpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:textColor="@color/navyblue"
+        android:textFamily="@font/montserrat_regular"
+        android:background="@drawable/button_color_hover"
+        android:textSize="15dp"
+        android:padding="3dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/textReco"
+        app:layout_constraintStart_toStartOf="@id/shapeBlue"
+        app:layout_constraintEnd_toEndOf="@id/shapeBlue"
+        android:layout_marginTop="110dp"/>
+
+    <Button
+        android:id="@+id/forgotSend"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:text="SEND"
+        android:fontFamily="@font/aileron_bold"
+        android:textColor="@color/dark"
+        android:backgroundTint="@color/dirtywhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shapeBlue"
+        android:layout_marginTop="100dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
