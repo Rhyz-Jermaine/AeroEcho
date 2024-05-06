@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".createstudentacc"
-    android:background="#E9E8E9">
+    android:background="@color/dirtywhite">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/createstudaccbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
