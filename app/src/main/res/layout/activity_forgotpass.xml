@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="New Password"
         android:textColor="@color/white"
-        android:textFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_regular"
         android:background="@drawable/button_color_hover"
         android:textSize="12sp"
         android:padding="3dp"
