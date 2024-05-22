@@ -4,8 +4,10 @@
     <item android:top="50dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/violet"/>
-            <corners android:topLeftRadius="10dp"
-                android:topRightRadius="10dp"/>
+            <corners android:topLeftRadius="20dp"
+                android:topRightRadius="20dp"
+                android:bottomRightRadius="20dp"
+                android:bottomLeftRadius="20dp"/>
         </shape>
     </item>
 
