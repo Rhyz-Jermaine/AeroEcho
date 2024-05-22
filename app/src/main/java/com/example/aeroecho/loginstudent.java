@@ -1,7 +1,8 @@
 package com.example.aeroecho;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -21,4 +22,19 @@ public class loginstudent extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void onSigninButtonClick(View view) {
+
+        Intent intent = new Intent(this, createstudentacc.class);
+
+        startActivity(intent);
+    }
+
+    public void onLoginAdminButtonClick(View view) {
+
+        Intent intent = new Intent(this, homePage.class);
+
+        startActivity(intent);
+    }
+
 }

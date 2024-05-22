@@ -5,34 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginstudent"
+    tools:context=".loginadmin"
     android:background="@color/navyblue">
 
     <ImageView
-        android:id="@+id/loginstudbg"
+        android:id="@+id/loginadminbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/loginstudbg"
         android:scaleType="centerCrop"/>
-
-    <TextView
-        android:id="@+id/forgotpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_regular"
-        android:background="@drawable/button_color_hover"
-        android:textSize="10sp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/loginstudbutton"
@@ -42,14 +24,13 @@
         android:fontFamily="@font/aileron_bold"
         android:textColor="@color/navyblue"
         android:backgroundTint="@color/lightblue"
-        app:layout_constraintBottom_toTopOf="@id/forgotpass"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom=".5dp"
-        android:onClick="onLoginAdminButtonClick"/>
+        android:layout_marginBottom="35dp"/>
 
     <EditText
-        android:id="@+id/loginstudpass"
+        android:id="@+id/loginAdminPass"
         android:layout_width="270dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_box_bg"
@@ -65,7 +46,7 @@
         app:layout_constraintBottom_toTopOf="@id/loginstudbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/textPass"
@@ -75,16 +56,16 @@
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_regular"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@id/loginstudpass"
-        app:layout_constraintStart_toStartOf="@+id/loginstudpass"
+        app:layout_constraintBottom_toTopOf="@id/loginAdminPass"
+        app:layout_constraintStart_toStartOf="@+id/loginAdminPass"
         android:layout_marginBottom="5dp"/>
 
     <EditText
-        android:id="@+id/loginstudUsername"
+        android:id="@+id/loginAdminUsername"
         android:layout_width="270dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_box_bg"
-        android:hint="Enter Username/ Student No."
+        android:hint="Enter Username"
         android:textSize="13sp"
         android:fontFamily="@font/montserrat_regular"
         android:paddingStart="16dp"
@@ -101,32 +82,13 @@
         android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USERNAME/ STUDENT NUMBER"
+        android:text="USERNAME"
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_regular"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@id/loginstudUsername"
-        app:layout_constraintStart_toStartOf="@+id/loginstudUsername"
+        app:layout_constraintBottom_toTopOf="@id/loginAdminUsername"
+        app:layout_constraintStart_toStartOf="@+id/loginAdminUsername"
         android:layout_marginBottom="5dp"/>
-
-    <TextView
-        android:id="@+id/studSignin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign in to continue"
-        android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_regular"
-        android:background="@drawable/button_color_hover"
-        android:textSize="10sp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/loginstudUsername"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="45dp"
-        android:onClick="onSigninButtonClick"/>
 
     <TextView
         android:id="@+id/textLogin"
@@ -136,10 +98,9 @@
         android:textColor="@color/lightblue"
         android:fontFamily="@font/aileron_bold"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@id/studSignin"
+        app:layout_constraintBottom_toTopOf="@id/textUsername"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="25dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

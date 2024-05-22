@@ -1,7 +1,8 @@
 package com.example.aeroecho;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -21,4 +22,33 @@ public class homePage extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void onMazeButtonClick(View view) {
+
+        Intent intent = new Intent(this, mazeSimulations.class);
+
+        startActivity(intent);
+    }
+
+    public void onTowerButtonClick(View view) {
+
+        Intent intent = new Intent(this, towerSimulations.class);
+
+        startActivity(intent);
+    }
+
+    public void onProfileButtonClick(View view) {
+
+        Intent intent = new Intent(this, profile.class);
+
+        startActivity(intent);
+    }
+
+    public void onInfoButtonClick(View view) {
+
+        Intent intent = new Intent(this, help.class);
+
+        startActivity(intent);
+    }
+
 }

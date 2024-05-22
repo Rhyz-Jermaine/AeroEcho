@@ -110,7 +110,8 @@
         android:layout_marginStart="25dp"
         app:layout_constraintTop_toBottomOf="@id/textSimulation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideline"/>
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        android:onClick="onMazeButtonClick"/>
 
     <TextView
         android:id="@+id/textMazeSimulation"
@@ -136,7 +137,8 @@
         android:layout_marginEnd="25dp"
         app:layout_constraintTop_toBottomOf="@id/textSimulation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline"/>
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        android:onClick="onTowerButtonClick"/>
 
     <TextView
         android:id="@+id/textTowerSimulation"
@@ -186,14 +188,16 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="19dp"
-                android:background="@drawable/profile"/>
+                android:background="@drawable/profile"
+                android:onClick="onProfileButtonClick"/>
 
             <ImageButton
                 android:id="@+id/home"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="19dp"
-                android:background="@drawable/home"/>
+                android:background="@drawable/home"
+                android:backgroundTint="@color/dark"/>
 
             <ImageButton
                 android:id="@+id/note"
@@ -207,7 +211,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="19dp"
-                android:background="@drawable/info"/>
+                android:background="@drawable/info"
+                android:onClick="onInfoButtonClick"/>
 
         </LinearLayout>
 

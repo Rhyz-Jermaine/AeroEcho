@@ -1,6 +1,8 @@
 package com.example.aeroecho;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +23,19 @@ public class profile extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void onHomeButtonClick(View view) {
+
+        Intent intent = new Intent(this, homePage.class);
+
+        startActivity(intent);
+    }
+
+    public void onInfoButtonClick(View view) {
+
+        Intent intent = new Intent(this, help.class);
+
+        startActivity(intent);
+    }
+
 }
