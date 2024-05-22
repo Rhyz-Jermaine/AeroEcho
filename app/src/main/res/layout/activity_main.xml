@@ -51,19 +51,6 @@
         android:layout_marginTop=".5dp"/>
 
     <Button
-        android:id="@+id/adminButtonFP"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:text="ADMIN"
-        android:fontFamily="@font/aileron_bold"
-        android:textColor="@color/navyblue"
-        android:backgroundTint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/aeroecho"
-        app:layout_constraintStart_toStartOf="@id/rectangleShapeFront"
-        app:layout_constraintEnd_toEndOf="@id/rectangleShapeFront"
-        android:layout_marginTop="35dp"/>
-
-    <Button
         android:id="@+id/studentButtonFP"
         android:layout_width="200dp"
         android:layout_height="45dp"
@@ -71,9 +58,24 @@
         android:fontFamily="@font/aileron_bold"
         android:textColor="@color/navyblue"
         android:backgroundTint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/adminButtonFP"
+        app:layout_constraintTop_toBottomOf="@id/aeroecho"
         app:layout_constraintStart_toStartOf="@id/rectangleShapeFront"
         app:layout_constraintEnd_toEndOf="@id/rectangleShapeFront"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="35dp"
+        android:onClick="onStudentButtonClick"/>
+
+    <Button
+        android:id="@+id/adminButtonFP"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:text="ADMIN"
+        android:fontFamily="@font/aileron_bold"
+        android:textColor="@color/navyblue"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/studentButtonFP"
+        app:layout_constraintStart_toStartOf="@id/rectangleShapeFront"
+        app:layout_constraintEnd_toEndOf="@id/rectangleShapeFront"
+        android:layout_marginTop="5dp"
+        android:onClick="onAdminButtonClick"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".help"
+    android:background="#F5F8FF">
+
+    <View
+        android:id="@+id/lightyellowTop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/lightyellow_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/aileron_bold"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintStart_toStartOf="@id/lightyellowTop"
+        app:layout_constraintEnd_toEndOf="@id/lightyellowTop"
+        app:layout_constraintTop_toTopOf="@+id/lightyellowTop"/>
+
+    <TextView
+        android:id="@+id/textCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call Support"
+        android:textSize="15.8dp"
+        android:fontFamily="@font/aileron_bold"
+        android:textColor="@color/dark"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/lightyellowTop"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/textNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="09123456789"
+        android:textSize="14dp"
+        android:fontFamily="@font/aileron_regular"
+        android:textColor="@color/dark"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/textCall"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/textMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Support"
+        android:textSize="15.8dp"
+        android:fontFamily="@font/aileron_bold"
+        android:textColor="@color/dark"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/textNum"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/textAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="emailaddress"
+        android:textSize="14dp"
+        android:fontFamily="@font/aileron_regular"
+        android:textColor="@color/dark"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/textMain"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/help"
+        app:layout_constraintTop_toBottomOf="@id/lightyellowTop"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textFAQs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frequently Asked Questions"
+        android:textSize="15.8dp"
+        android:fontFamily="@font/aileron_bold"
+        android:textColor="@color/dark"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/textAdd"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/lightyellowBottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/lightyellow_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="310dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/profile"
+                android:backgroundTint="@color/dark"/>
+
+            <ImageButton
+                android:id="@+id/home"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/home"
+                android:backgroundTint="@color/dark"/>
+
+            <ImageButton
+                android:id="@+id/note"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/note"
+                android:backgroundTint="@color/dark"/>
+
+            <ImageButton
+                android:id="@+id/info"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/info"
+                android:backgroundTint="@color/violet"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

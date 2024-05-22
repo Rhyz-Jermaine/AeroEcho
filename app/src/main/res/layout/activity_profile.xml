@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile"
+    android:background="#F5F8FF">
+
+    <View
+        android:id="@+id/lightyellowTop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/lightyellow_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/aileron_bold"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintStart_toStartOf="@id/lightyellowTop"
+        app:layout_constraintEnd_toEndOf="@id/lightyellowTop"
+        app:layout_constraintTop_toTopOf="@+id/lightyellowTop"/>
+
+
+
+    <FrameLayout
+        android:id="@+id/lightyellowBottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/lightyellow_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="310dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/profile"
+                android:backgroundTint="@color/violet"/>
+
+            <ImageButton
+                android:id="@+id/home"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/home"
+                android:backgroundTint="@color/dark"/>
+
+            <ImageButton
+                android:id="@+id/note"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/note"
+                android:backgroundTint="@color/dark"/>
+
+            <ImageButton
+                android:id="@+id/info"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/info"
+                android:backgroundTint="@color/dark"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
