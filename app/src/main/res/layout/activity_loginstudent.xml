@@ -32,7 +32,8 @@
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onForgotPassButtonClick"/>
 
     <Button
         android:id="@+id/loginstudbutton"
@@ -46,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom=".5dp"
-        android:onClick="onLoginAdminButtonClick"/>
+        android:onClick="onLoginStudentButtonClick"/>
 
     <EditText
         android:id="@+id/loginstudpass"

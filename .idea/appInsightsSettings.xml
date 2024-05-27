@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.aeroecho" />
+                  <option name="mobileSdkAppId" value="1:322653372215:android:bbc15c4924236b82e964b2" />
+                  <option name="projectId" value="capstoneproject-a86e6" />
+                  <option name="projectNumber" value="322653372215" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

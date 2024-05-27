@@ -7,7 +7,7 @@
             android:innerRadiusRatio="3"
             android:thicknessRatio="10"
             android:useLevel="false">
-            <solid android:color="@color/dirtywhite"/>
+            <solid android:color="@color/gray"/>
         </shape>
     </item>
 

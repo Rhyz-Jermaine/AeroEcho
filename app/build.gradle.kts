@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -32,12 +33,17 @@ android {
 }
 
 dependencies {
-
+    //libraries
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.legacy.support.v4)
+    implementation(libs.firebase.database)
+    //for authentication and realtime db
+    implementation("com.google.firebase:firebase-auth:21.0.3")
+    implementation("com.google.firebase:firebase-database:20.0.3")
+    //for testing or like test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
