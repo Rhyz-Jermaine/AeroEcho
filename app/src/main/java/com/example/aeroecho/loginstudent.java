@@ -69,9 +69,11 @@ public class loginstudent extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     private void loginStudent() {
         String usernameOrNumber = loginstudUsername.getText().toString().trim();
         String password = loginstudpass.getText().toString().trim();
+
 
         if (TextUtils.isEmpty(usernameOrNumber) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();

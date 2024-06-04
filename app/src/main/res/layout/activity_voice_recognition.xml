@@ -68,7 +68,6 @@
         android:text="NEXT"
         android:textColor="@color/navyblue"
         android:fontFamily="@font/montserrat_regular"
-        android:background="@drawable/button_color_hover"
         android:textSize="15dp"
         android:padding="3dp"
         android:clickable="true"

@@ -48,7 +48,6 @@
         android:text="Already registered? Login here."
         android:textColor="@color/lightblue"
         android:fontFamily="@font/montserrat_regular"
-        android:background="@drawable/button_color_hover"
         android:textSize="12sp"
         android:padding="3dp"
         android:clickable="true"
