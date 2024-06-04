@@ -54,7 +54,6 @@ public class loginstudent extends AppCompatActivity {
         loginstudUsername = findViewById(R.id.loginstudUsername);
         loginstudpass = findViewById(R.id.loginstudpass);
         loginstudbutton = findViewById(R.id.loginstudbutton);
-        forgotpass = findViewById(R.id.forgotpass);
 
         loginstudbutton.setOnClickListener(v -> loginStudent());
 
@@ -62,6 +61,11 @@ public class loginstudent extends AppCompatActivity {
 
     public void onSigninButtonClick(View view) {
         Intent intent = new Intent(this, createstudentacc.class);
+        startActivity(intent);
+    }
+
+    public void onForgotPassButtonClick(View view) {
+        Intent intent = new Intent(this, forgotpass.class);
         startActivity(intent);
     }
 
@@ -110,43 +114,6 @@ public class loginstudent extends AppCompatActivity {
                 Toast.makeText(loginstudent.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void onForgotPassButtonClick(View view) {
-        promptForEmail();
-    }
-
-    private void promptForEmail() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Reset Password");
-
-        final EditText input = new EditText(this);
-        input.setHint("Enter your registered email");
-        builder.setView(input);
-
-        builder.setPositiveButton("Send", (dialog, which) -> {
-            String email = input.getText().toString().trim();
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(loginstudent.this, "Email is required", Toast.LENGTH_SHORT).show();
-            } else {
-                sendPasswordResetEmail(email);
-            }
-        });
-
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-
-        builder.show();
-    }
-
-    private void sendPasswordResetEmail(String email) {
-        mAuth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(loginstudent.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(loginstudent.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
 
 
