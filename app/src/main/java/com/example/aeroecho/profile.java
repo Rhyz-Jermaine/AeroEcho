@@ -31,6 +31,13 @@ public class profile extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onModuleClick(View view) {
+
+        Intent intent = new Intent(this, homePage.class);
+
+        startActivity(intent);
+    }
+
     public void onInfoButtonClick(View view) {
 
         Intent intent = new Intent(this, help.class);

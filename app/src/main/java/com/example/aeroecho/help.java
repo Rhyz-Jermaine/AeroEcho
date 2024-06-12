@@ -1,9 +1,11 @@
 package com.example.aeroecho;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.UnderlineSpan;
+import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.activity.EdgeToEdge;
@@ -40,4 +42,20 @@ public class help extends AppCompatActivity {
         textViewFAQs.setText(content);
 
     }
+
+    public void onProfileButtonClick(View view) {
+        Intent intent = new Intent(this, profile.class);
+        startActivity(intent);
+    }
+
+    public void onModuleClick(View view) {
+        Intent intent = new Intent(this, profile.class);
+        startActivity(intent);
+    }
+
+    public void onInfoButtonClick(View view) {
+        Intent intent = new Intent(this, help.class);
+        startActivity(intent);
+    }
+
 }
