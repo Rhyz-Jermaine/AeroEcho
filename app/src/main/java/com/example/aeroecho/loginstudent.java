@@ -1,6 +1,7 @@
 package com.example.aeroecho;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -90,6 +91,10 @@ public class loginstudent extends AppCompatActivity {
                                             public void onDataChange(DataSnapshot dataSnapshot) {
                                                 String username = dataSnapshot.child("username").getValue(String.class);
                                                 if (username != null) {
+                                                    SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putString("USERNAME", username);
+                                                    editor.apply();
                                                     // Proceed to homePage activity with the fetched username
                                                     Intent intent = new Intent(loginstudent.this, homePage.class);
                                                     intent.putExtra("USERNAME", username);

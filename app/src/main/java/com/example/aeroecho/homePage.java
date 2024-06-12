@@ -2,6 +2,7 @@
 package com.example.aeroecho;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +23,12 @@ public class homePage extends AppCompatActivity {
         // Get the Intent that started this activity and extract the username
         Intent intent = getIntent();
         String username = intent.getStringExtra("USERNAME");
+
+        if (username == null) {
+            // If username is not passed via Intent, retrieve it from SharedPreferences
+            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+            username = sharedPreferences.getString("USERNAME", "Guest");
+        }
 
         // Update the TextView with the username
         TextView textUserName = findViewById(R.id.textUserName);
@@ -50,7 +57,7 @@ public class homePage extends AppCompatActivity {
     }
 
     public void onModuleClick(View view) {
-        Intent intent = new Intent(this, profile.class);
+        Intent intent = new Intent(this, module.class);
         startActivity(intent);
     }
 

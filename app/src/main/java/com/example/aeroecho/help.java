@@ -49,7 +49,7 @@ public class help extends AppCompatActivity {
     }
 
     public void onModuleClick(View view) {
-        Intent intent = new Intent(this, profile.class);
+        Intent intent = new Intent(this, module.class);
         startActivity(intent);
     }
 

@@ -33,7 +33,7 @@ public class profile extends AppCompatActivity {
 
     public void onModuleClick(View view) {
 
-        Intent intent = new Intent(this, homePage.class);
+        Intent intent = new Intent(this, module.class);
 
         startActivity(intent);
     }
