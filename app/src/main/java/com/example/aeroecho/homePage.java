@@ -1,8 +1,10 @@
+// homePage.java
 package com.example.aeroecho;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -16,6 +18,15 @@ public class homePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home_page);
+
+        // Get the Intent that started this activity and extract the username
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("USERNAME");
+
+        // Update the TextView with the username
+        TextView textUserName = findViewById(R.id.textUserName);
+        textUserName.setText(username);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -24,31 +35,22 @@ public class homePage extends AppCompatActivity {
     }
 
     public void onMazeButtonClick(View view) {
-
         Intent intent = new Intent(this, mazeSimulations.class);
-
         startActivity(intent);
     }
 
     public void onTowerButtonClick(View view) {
-
         Intent intent = new Intent(this, towerSimulations.class);
-
         startActivity(intent);
     }
 
     public void onProfileButtonClick(View view) {
-
         Intent intent = new Intent(this, profile.class);
-
         startActivity(intent);
     }
 
     public void onInfoButtonClick(View view) {
-
         Intent intent = new Intent(this, help.class);
-
         startActivity(intent);
     }
-
 }

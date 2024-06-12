@@ -1,30 +1,24 @@
 package com.example.aeroecho;
 
-//necessary
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-//other widgets
-import android.text.TextUtils;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-//para sa firebase
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import androidx.appcompat.app.AlertDialog;
 
 public class loginstudent extends AppCompatActivity {
 
@@ -34,12 +28,11 @@ public class loginstudent extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_loginstudent);
+        EdgeToEdge.enable(this);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -56,7 +49,6 @@ public class loginstudent extends AppCompatActivity {
         loginstudbutton = findViewById(R.id.loginstudbutton);
 
         loginstudbutton.setOnClickListener(v -> loginStudent());
-
     }
 
     public void onSigninButtonClick(View view) {
@@ -69,11 +61,9 @@ public class loginstudent extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     private void loginStudent() {
         String usernameOrNumber = loginstudUsername.getText().toString().trim();
         String password = loginstudpass.getText().toString().trim();
-
 
         if (TextUtils.isEmpty(usernameOrNumber) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
@@ -93,12 +83,27 @@ public class loginstudent extends AppCompatActivity {
                         mAuth.signInWithEmailAndPassword(email, password)
                                 .addOnCompleteListener(loginstudent.this, task -> {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(loginstudent.this, "Login successful", Toast.LENGTH_SHORT).show();
-                                        // Proceed to the next activity or home screen
-                                        Intent intent = new Intent(loginstudent.this, homePage.class);
-                                        startActivity(intent);
-                                        finish(); //close the current activity para kahit ma back ng user hindi bumalik don unless mag logout
-                                    }else {
+                                        String uid = mAuth.getCurrentUser().getUid();
+                                        DatabaseReference userRef = mDatabase.child(uid);
+                                        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                                String username = dataSnapshot.child("username").getValue(String.class);
+                                                if (username != null) {
+                                                    // Proceed to homePage activity with the fetched username
+                                                    Intent intent = new Intent(loginstudent.this, homePage.class);
+                                                    intent.putExtra("USERNAME", username);
+                                                    startActivity(intent);
+                                                    finish(); // Close the current activity
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(DatabaseError databaseError) {
+                                                Toast.makeText(loginstudent.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    } else {
                                         Toast.makeText(loginstudent.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -118,7 +123,6 @@ public class loginstudent extends AppCompatActivity {
         });
     }
 
-
     public static class Student {
         public String username;
         public String email;
@@ -136,7 +140,4 @@ public class loginstudent extends AppCompatActivity {
             this.section = section;
         }
     }
-
-
-
 }

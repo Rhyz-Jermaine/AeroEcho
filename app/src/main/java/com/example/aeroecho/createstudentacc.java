@@ -1,5 +1,6 @@
 package com.example.aeroecho;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -79,6 +80,8 @@ public class createstudentacc extends AppCompatActivity {
                             writeNewStudent(user.getUid(), username, email, studentNum, section);
                         }
                         Toast.makeText(createstudentacc.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(createstudentacc.this, loginstudent.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(createstudentacc.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
