@@ -16,10 +16,11 @@
         android:theme="@style/Theme.AeroEcho"
         tools:targetApi="31">
         <activity
-            android:name=".module"
-            android:exported="false" />
+            android:name=".Simulation_generated"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
-            android:name=".OfflinesimulationActivity"
+            android:name=".module"
             android:exported="false" />
         <activity
             android:name=".ResetPassword"
