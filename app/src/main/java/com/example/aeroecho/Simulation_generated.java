@@ -1,5 +1,6 @@
 package com.example.aeroecho;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class Simulation_generated extends AppCompatActivity {
     private MyCustomAirportView airportView;
     private Button micButton;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
