@@ -1,6 +1,8 @@
 package com.example.aeroecho;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +23,10 @@ public class towerSimulations extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void onOfflineButtonClick(View view) {
+        Intent intent = new Intent(this, Simulation_generated.class);
+        startActivity(intent);
+    }
+
 }

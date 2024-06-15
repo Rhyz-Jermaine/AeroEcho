@@ -57,7 +57,8 @@
         app:layout_constraintTop_toBottomOf="@id/textPractice"
         app:layout_constraintStart_toStartOf="@id/practiceBG"
         app:layout_constraintEnd_toEndOf="@id/practiceBG"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp"
+        android:onClick="onOfflineButtonClick"/>
 
     <View
         android:id="@+id/assessBG"
