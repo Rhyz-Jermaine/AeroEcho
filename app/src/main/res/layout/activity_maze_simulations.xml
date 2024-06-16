@@ -147,15 +147,6 @@
             android:layout_gravity="center">
 
             <ImageButton
-                android:id="@+id/profile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="19dp"
-                android:background="@drawable/profile"
-                android:backgroundTint="@color/dark"
-                android:onClick="onProfileButtonClick"/>
-
-            <ImageButton
                 android:id="@+id/home"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -163,6 +154,15 @@
                 android:background="@drawable/home"
                 android:backgroundTint="@color/dark"
                 android:onClick="onHomeButtonClick"/>
+
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="19dp"
+                android:background="@drawable/profile"
+                android:backgroundTint="@color/dark"
+                android:onClick="onProfileButtonClick"/>
 
             <ImageButton
                 android:id="@+id/note"

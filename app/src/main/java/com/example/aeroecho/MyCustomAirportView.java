@@ -32,7 +32,7 @@ public class MyCustomAirportView extends View {
     private void init() {
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(10);
+        paint.setStrokeWidth(150);
 
         textPaint = new Paint();
         textPaint.setColor(Color.BLACK);
