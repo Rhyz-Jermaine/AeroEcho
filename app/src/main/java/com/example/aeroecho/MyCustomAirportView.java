@@ -8,9 +8,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-
 import java.util.Random;
 
 public class MyCustomAirportView extends View {
@@ -32,11 +32,12 @@ public class MyCustomAirportView extends View {
     private void init() {
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(150);
+        paint.setStrokeWidth(20); // Adjust stroke width as needed
 
         textPaint = new Paint();
         textPaint.setColor(Color.BLACK);
         textPaint.setTextSize(50);
+        textPaint.setTextAlign(Paint.Align.CENTER); // Center text horizontally
 
         // Initialize aircraft positions
         aircrafts = new Aircraft[4];
@@ -53,34 +54,72 @@ public class MyCustomAirportView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        // Calculate center of the view
+        float centerX = getWidth() / 2f;
+        float centerY = getHeight() / 2f;
+
         // Draw background
         canvas.drawColor(Color.LTGRAY);
 
-        paint.setColor(Color.BLUE);
+        // Calculate runway coordinates relative to the center
+        float startX = centerX - 400; // Adjust as needed
+        float startY = centerY + 250; // Adjust as needed
+        float endX = centerX + 400;   // Adjust as needed
+        float endY = centerY - 250;   // Adjust as needed
+
+        // Draw runway
+        paint.setColor(Color.BLACK); // Adjust color as needed
         paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(20); // Adjust stroke width as needed
+        canvas.drawLine(startX, startY, endX, endY, paint);
 
-        // Draw angled runway
-        canvas.save();
-        canvas.rotate(-45, getWidth() / 2, getHeight() / 2);
-        canvas.drawLine(300, 500, 800, 0, paint);
-        canvas.restore();
+        // Draw "06" sign
+        drawRunwaySign(canvas, "06", startX, startY, endX, endY, true);
 
-        // Draw taxiways and terminals
-        canvas.save();
-        canvas.rotate(-45, getWidth() / 2, getHeight() / 2);
-        canvas.drawRect(100, 100, 300, 300, paint);
-        canvas.drawRect(600, 100, 800, 300, paint);
-        canvas.restore();
+        // Draw "24" sign
+        drawRunwaySign(canvas, "24", endX, endY, startX, startY, false);
+
+        // Draw Bravo taxiway (parallel to runway)
+        float bravoStartX = startX - 50; // Adjust leftward shift as needed
+        float bravoStartY = startY - 100; // Adjust distance from runway as needed
+        float bravoEndX = endX - 50;     // Adjust leftward shift as needed
+        float bravoEndY = endY - 100;     // Adjust distance from runway as needed
+        paint.setColor(Color.BLUE); // Adjust color as needed
+        canvas.drawLine(bravoStartX, bravoStartY, bravoEndX, bravoEndY, paint);
+
+        // Draw Hotel 1 taxiway (connecting Bravo to runway at point 06)
+        float hotel1StartX = bravoStartX; // Start at Bravo
+        float hotel1StartY = bravoStartY; // Same Y-coordinate as Bravo's start
+        float hotel1EndX = startX;        // End at runway point 06
+        float hotel1EndY = startY;        // Same Y-coordinate as runway's start
+        paint.setColor(Color.GREEN);      // Adjust color as needed
+        canvas.drawLine(hotel1StartX, hotel1StartY, hotel1EndX, hotel1EndY, paint);
 
         // Draw aircrafts
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.RED); // Adjust color as needed
         paint.setStyle(Paint.Style.FILL);
         for (Aircraft aircraft : aircrafts) {
             canvas.drawCircle(aircraft.getX(), aircraft.getY(), 20, paint);
         }
 
         // Draw wind command
-        canvas.drawText(windCommand, 50, 50, textPaint);
+        canvas.drawText(windCommand, centerX, 50, textPaint);
+    }
+
+    private void drawRunwaySign(Canvas canvas, String text, float startX, float startY, float endX, float endY, boolean leftAligned) {
+        // Calculate center position for the sign
+        float centerX = (startX + endX) / 2;
+        float centerY = (startY + endY) / 2;
+
+        // Calculate offset for "06" or "24" text
+        float offset = leftAligned ? -100 : 100;
+
+        // Draw text
+        Rect bounds = new Rect();
+        textPaint.getTextBounds(text, 0, text.length(), bounds);
+        float textWidth = textPaint.measureText(text);
+        float textHeight = bounds.height();
+        canvas.drawText(text, centerX + offset, centerY + textHeight / 2, textPaint);
     }
 
     public void updateAircraftPosition(int index, float x, float y) {

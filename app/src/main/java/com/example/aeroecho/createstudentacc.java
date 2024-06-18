@@ -15,18 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.List;
 
 public class createstudentacc extends AppCompatActivity {
 
@@ -41,14 +35,7 @@ public class createstudentacc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-
         setContentView(R.layout.activity_createstudentacc);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("students");
@@ -70,7 +57,9 @@ public class createstudentacc extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sections_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        createSectionSpinner.setAdapter(new HintAdapter(this, adapter, R.layout.spinner_hint, "Section"));
+        HintAdapter hintAdapter = new HintAdapter(this, adapter, R.layout.spinner_hint, "Section");
+        createSectionSpinner.setAdapter(hintAdapter);
+
         createSectionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -145,6 +134,11 @@ public class createstudentacc extends AppCompatActivity {
         }
     }
 
+    public void goToLogin(View view) {
+        Intent intent = new Intent(this, loginstudent.class);
+        startActivity(intent);
+    }
+
     private class HintAdapter extends ArrayAdapter<CharSequence> {
 
         private ArrayAdapter<CharSequence> adapter;
@@ -152,7 +146,7 @@ public class createstudentacc extends AppCompatActivity {
         private String hint;
 
         public HintAdapter(Context context, ArrayAdapter<CharSequence> adapter, int hintLayout, String hint) {
-            super(context, hintLayout);
+            super(context, hintLayout, adapter.getCount() + 1); // Adjust for hint item
             this.adapter = adapter;
             this.hintLayout = hintLayout;
             this.hint = hint;
@@ -181,21 +175,28 @@ public class createstudentacc extends AppCompatActivity {
             return adapter.getView(position - 1, convertView, parent);
         }
 
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            if (position == 0) {
+                return getHintDropDownView(parent);
+            }
+            return adapter.getDropDownView(position - 1, convertView, parent);
+        }
+
         private View getHintView(ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             View hintView = inflater.inflate(hintLayout, parent, false);
-            TextView textView = hintView.findViewById(android.R.id.text1);
+            TextView textView = hintView.findViewById(android.R.id.text1); // Assuming android.R.id.text1 exists in your hintLayout
             textView.setText(hint);
             textView.setTextColor(getContext().getResources().getColor(android.R.color.darker_gray));
             return hintView;
         }
 
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            if (position == 0) {
-                return new View(getContext()); // Hide hint in dropdown
-            }
-            return adapter.getDropDownView(position - 1, convertView, parent);
+        private View getHintDropDownView(ViewGroup parent) {
+            // Return a transparent view to hide the hint in dropdown
+            View view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            view.setVisibility(View.GONE);
+            return view;
         }
     }
 }

@@ -55,7 +55,8 @@
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAccount"
-        android:layout_marginStart="18dp"/>
+        android:layout_marginStart="18dp"
+        android:onClick="goToLogin"/>
 
     <TextView
         android:id="@+id/createTextName"

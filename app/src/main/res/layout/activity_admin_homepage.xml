@@ -60,12 +60,56 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- RecyclerView Section -->
+    <Button
+        android:id="@+id/section1_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Section 1"
+        app:layout_constraintTop_toBottomOf="@id/button_upload_file"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <Button
+        android:id="@+id/section2_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Section 2"
+        app:layout_constraintTop_toBottomOf="@id/button_upload_file"
+        app:layout_constraintStart_toEndOf="@id/section1_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <Button
+        android:id="@+id/section3_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Section 3"
+        app:layout_constraintTop_toBottomOf="@id/button_upload_file"
+        app:layout_constraintStart_toEndOf="@id/section2_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- RecyclerView Section -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_students"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/button_upload_file"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/section1_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/violet_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/violet_bottom_create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
