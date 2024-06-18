@@ -1,9 +1,12 @@
 package com.example.aeroecho;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
 
 public class createstudentacc extends AppCompatActivity {
 
@@ -62,10 +67,10 @@ public class createstudentacc extends AppCompatActivity {
     }
 
     private void setupSpinner() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sections_array, R.layout.spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sections_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        createSectionSpinner.setAdapter(adapter);
 
+        createSectionSpinner.setAdapter(new HintAdapter(this, adapter, R.layout.spinner_hint, "Section"));
         createSectionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -81,16 +86,6 @@ public class createstudentacc extends AppCompatActivity {
                 // Do nothing
             }
         });
-
-        // Set the hint
-        createSectionSpinner.setAdapter(
-                new ArrayAdapter<String>(this, R.layout.spinner_hint, new String[]{"Section"}) {
-                    @Override
-                    public boolean isEnabled(int position) {
-                        return position != 0;
-                    }
-                }
-        );
     }
 
     private void createAccount() {
@@ -147,6 +142,60 @@ public class createstudentacc extends AppCompatActivity {
             this.email = email;
             this.studentNum = studentNum;
             this.section = section;
+        }
+    }
+
+    private class HintAdapter extends ArrayAdapter<CharSequence> {
+
+        private ArrayAdapter<CharSequence> adapter;
+        private int hintLayout;
+        private String hint;
+
+        public HintAdapter(Context context, ArrayAdapter<CharSequence> adapter, int hintLayout, String hint) {
+            super(context, hintLayout);
+            this.adapter = adapter;
+            this.hintLayout = hintLayout;
+            this.hint = hint;
+        }
+
+        @Override
+        public int getCount() {
+            return adapter.getCount() + 1; // Adjust for hint item
+        }
+
+        @Override
+        public CharSequence getItem(int position) {
+            return (position == 0) ? hint : adapter.getItem(position - 1);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position - 1;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (position == 0) {
+                return getHintView(parent);
+            }
+            return adapter.getView(position - 1, convertView, parent);
+        }
+
+        private View getHintView(ViewGroup parent) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            View hintView = inflater.inflate(hintLayout, parent, false);
+            TextView textView = hintView.findViewById(android.R.id.text1);
+            textView.setText(hint);
+            textView.setTextColor(getContext().getResources().getColor(android.R.color.darker_gray));
+            return hintView;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            if (position == 0) {
+                return new View(getContext()); // Hide hint in dropdown
+            }
+            return adapter.getDropDownView(position - 1, convertView, parent);
         }
     }
 }
