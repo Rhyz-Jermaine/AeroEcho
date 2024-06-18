@@ -46,6 +46,8 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.0.3")
     implementation ("com.google.firebase:firebase-storage:20.0.1")
     implementation ("com.google.firebase:firebase-core:21.0.0")
+    implementation ("com.google.firebase:firebase-appcheck")
+    implementation ("com.google.firebase:firebase-bom:latest_version")
     //for testing or like test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
