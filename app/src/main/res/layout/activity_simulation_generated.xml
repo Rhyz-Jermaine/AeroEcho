@@ -10,33 +10,54 @@
 
     <com.example.aeroecho.MyCustomAirportView
         android:id="@+id/airportView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="Parent"
-        app:layout_constraintEnd_toEndOf="Parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonContainer"
+        app:layout_constraintWidth_percent="0.8"/>
 
-    <Button
-        android:id="@+id/micButton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:text="🎤"
-        android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="Parent"
-        app:layout_constraintEnd_toEndOf="Parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toEndOf="@+id/airportView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.2">
 
-    <Button
-        android:id="@+id/refreshButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refresh Wind"
-        android:background="@android:color/holo_green_dark"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/micButton"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="Parent"
-        app:layout_constraintEnd_toEndOf="Parent"/>
+        <Button
+            android:id="@+id/refreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refresh Wind"
+            android:background="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/placeholder"
+            android:layout_marginTop="5dp"/>
+
+        <androidx.constraintlayout.widget.Placeholder
+            android:id="@+id/placeholder"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/refreshButton"
+            app:layout_constraintBottom_toTopOf="@+id/micButton"/>
+
+        <Button
+            android:id="@+id/micButton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="🎤"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="5dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

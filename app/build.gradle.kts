@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     id("com.google.gms.google-services")
+    id ("com.android.application")
 }
 
 android {
@@ -40,9 +41,11 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.legacy.support.v4)
     implementation(libs.firebase.database)
-    //for authentication and realtime db
+    //for authentication, storage, and realtime db, core rin pala
     implementation("com.google.firebase:firebase-auth:21.0.3")
     implementation("com.google.firebase:firebase-database:20.0.3")
+    implementation ("com.google.firebase:firebase-storage:20.0.1")
+    implementation ("com.google.firebase:firebase-core:21.0.0")
     //for testing or like test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
