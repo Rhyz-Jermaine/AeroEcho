@@ -58,9 +58,7 @@
         android:text="Upload File"
         app:layout_constraintTop_toBottomOf="@id/button_select_file"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginEnd="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- RecyclerView Section -->
     <androidx.recyclerview.widget.RecyclerView
@@ -70,8 +68,5 @@
         app:layout_constraintTop_toBottomOf="@id/button_upload_file"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginTop="32dp"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginEnd="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
