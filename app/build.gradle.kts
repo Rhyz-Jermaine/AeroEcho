@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.legacy.support.v4)
     implementation(libs.firebase.database)
+    implementation ("androidx.annotation:annotation:1.2.0")
     //for authentication, storage, and realtime db, core rin pala
     implementation("com.google.firebase:firebase-auth:21.0.3")
     implementation("com.google.firebase:firebase-database:20.0.3")

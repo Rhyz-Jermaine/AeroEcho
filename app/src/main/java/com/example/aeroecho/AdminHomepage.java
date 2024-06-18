@@ -25,8 +25,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
-public class AdminHomepageActivity extends AppCompatActivity {
+public class AdminHomepage extends AppCompatActivity {
 
     private static final int PICK_FILE_REQUEST = 1;
 
@@ -39,6 +40,7 @@ public class AdminHomepageActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private StudentAdapter studentAdapter;
     private List<Student> studentList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +131,7 @@ public class AdminHomepageActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(AdminHomepageActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdminHomepage.this, "Upload successful", Toast.LENGTH_LONG).show();
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
@@ -143,7 +145,7 @@ public class AdminHomepageActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AdminHomepageActivity.this, "Upload failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminHomepage.this, "Upload failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {

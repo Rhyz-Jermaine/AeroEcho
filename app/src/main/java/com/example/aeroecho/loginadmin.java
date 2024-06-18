@@ -1,4 +1,6 @@
 package com.example.aeroecho;
+
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -6,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginAdminActivity extends AppCompatActivity {
+public class loginadmin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +33,11 @@ public class LoginAdminActivity extends AppCompatActivity {
             // Check if the entered credentials match the admin credentials
             if (TextUtils.equals(enteredUsername, "ADMIN") && TextUtils.equals(enteredPassword, "@dmin123")) {
                 // Login successful
-                Toast.makeText(LoginAdminActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loginadmin.this, "Login successful", Toast.LENGTH_SHORT).show();
                 // Proceed to the next activity or perform any other necessary actions
             } else {
                 // Login failed
-                Toast.makeText(LoginAdminActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loginadmin.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         });
     }
