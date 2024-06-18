@@ -7,7 +7,6 @@
     tools:context=".AdminHomepage">
 
     <!-- Profile and Name Section -->
-
     <View
         android:id="@+id/violetTop"
         android:layout_width="match_parent"
