@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 
 public class loginadmin extends AppCompatActivity {
 
@@ -34,7 +35,10 @@ public class loginadmin extends AppCompatActivity {
             if (TextUtils.equals(enteredUsername, "ADMIN") && TextUtils.equals(enteredPassword, "@dmin123")) {
                 // Login successful
                 Toast.makeText(loginadmin.this, "Login successful", Toast.LENGTH_SHORT).show();
-                // Proceed to the next activity or perform any other necessary actions
+                Intent intent = new Intent(loginadmin.this, AdminHomepage.class);
+                startActivity(intent);
+                finish();
+
             } else {
                 // Login failed
                 Toast.makeText(loginadmin.this, "Invalid username or password", Toast.LENGTH_SHORT).show();

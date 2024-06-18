@@ -164,23 +164,17 @@
         android:layout_marginTop="7dp"
         android:layout_marginStart="50dp"/>
 
-    <EditText
-        android:id="@+id/createSection"
+    <Spinner
+        android:id="@+id/createSectionSpinner"
         android:layout_width="312dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_box_bg"
-        android:hint="section"
-        android:textSize="13sp"
-        android:fontFamily="@font/montserrat_regular"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        android:textColor="@color/black"
+        android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createTextSection"
         android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/createTextSection"/>
+        android:dropDownVerticalOffset="5dp"/>
 
     <TextView
         android:id="@+id/createTextPass"
@@ -191,7 +185,7 @@
         android:textColor="@color/dark"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createSection"
+        app:layout_constraintTop_toBottomOf="@+id/createSectionSpinner"
         android:layout_marginTop="7dp"
         android:layout_marginStart="50dp"/>
 
