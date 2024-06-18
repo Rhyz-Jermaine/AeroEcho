@@ -46,7 +46,7 @@ public class AdminHomepageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_homepage);
 
         adminProfilePicture = findViewById(R.id.admin_profile_picture);
-        adminName = findViewById(R.id.admin_name);
+        adminName = findViewById(R.id.adminName);
         buttonSelectFile = findViewById(R.id.button_select_file);
         buttonUploadFile = findViewById(R.id.button_upload_file);
         recyclerView = findViewById(R.id.recyclerView_students);
@@ -85,9 +85,7 @@ public class AdminHomepageActivity extends AppCompatActivity {
 
         adminName.setText(name);
 
-        // Load profile picture (use a library like Glide or Picasso)
-        // For example, using Glide:
-        // Glide.with(this).load(profilePicUrl).into(adminProfilePicture);
+        // Load profile picturde
     }
 
     private void loadStudentsFromFirebase() {
