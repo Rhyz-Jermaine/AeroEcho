@@ -15,7 +15,6 @@ import java.util.Random;
 
 public class MyCustomAirportView extends View {
     private Paint paint;
-    private Aircraft[] aircrafts;
     private String windCommand;
     private Paint textPaint;
 
@@ -38,13 +37,6 @@ public class MyCustomAirportView extends View {
         textPaint.setColor(Color.BLACK);
         textPaint.setTextSize(50);
         textPaint.setTextAlign(Paint.Align.CENTER); // Center text horizontally
-
-        // Initialize aircraft positions
-        aircrafts = new Aircraft[4];
-        aircrafts[0] = new Aircraft(200, 150);
-        aircrafts[1] = new Aircraft(250, 100);
-        aircrafts[2] = new Aircraft(300, 50);
-        aircrafts[3] = new Aircraft(350, 0);
 
         // Generate initial wind command
         generateWindCommand();
@@ -149,12 +141,6 @@ public class MyCustomAirportView extends View {
         paint.setColor(Color.DKGRAY); // Adjust color as needed
         canvas.drawLine(charlie2StartX, charlie2StartY, charlie2EndX, charlie2EndY, paint);
 
-        // Draw aircrafts
-        paint.setColor(Color.RED); // Adjust color as needed
-        paint.setStyle(Paint.Style.FILL);
-        for (Aircraft aircraft : aircrafts) {
-            canvas.drawCircle(aircraft.getX(), aircraft.getY(), 20, paint);
-        }
 
         // Draw wind command
         canvas.drawText(windCommand, centerX, 50, textPaint);
@@ -174,30 +160,6 @@ public class MyCustomAirportView extends View {
         float textWidth = textPaint.measureText(text);
         float textHeight = bounds.height();
         canvas.drawText(text, centerX + offset, centerY + textHeight / 2, textPaint);
-    }
-
-    public void updateAircraftPosition(int index, float x, float y) {
-        if (index >= 0 && index < aircrafts.length) {
-            aircrafts[index].moveTo(x, y);
-            invalidate();
-        }
-    }
-
-    public void animateAircraftPosition(int index, float x, float y) {
-        if (index >= 0 && index < aircrafts.length) {
-            ObjectAnimator animatorX = ObjectAnimator.ofFloat(aircrafts[index], "x", x);
-            ObjectAnimator animatorY = ObjectAnimator.ofFloat(aircrafts[index], "y", y);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(animatorX, animatorY);
-            animatorSet.setDuration(1000); // Animation duration in milliseconds
-            animatorSet.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    invalidate();
-                }
-            });
-            animatorSet.start();
-        }
     }
 
     private void generateWindCommand() {

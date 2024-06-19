@@ -63,27 +63,7 @@ public class Simulation_generated extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE_SPEECH_INPUT) {
-            if (resultCode == RESULT_OK && data != null) {
-                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                String command = result.get(0);
-                processCommand(command);
-            }
-        }
-    }
-
-    private void processCommand(String command) {
-        if (command.equalsIgnoreCase("taxi to runway one")) {
-            speak("Command received. Taxi to runway one.");
-            airportView.animateAircraftPosition(0, 400, 200); // Example position
-        } else {
-            speak("Invalid command. Please try again.");
-        }
-    }
 
     private void speak(String text) {
         textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
