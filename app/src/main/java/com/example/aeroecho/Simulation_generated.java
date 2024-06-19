@@ -27,7 +27,7 @@ public class Simulation_generated extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_simulation_generated);
 
         airportView = findViewById(R.id.airportView);
         micButton = findViewById(R.id.micButton);
