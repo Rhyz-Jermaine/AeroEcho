@@ -32,7 +32,7 @@ public class MyCustomAirportView extends View {
     private void init() {
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(20); // Adjust stroke width as needed
+        paint.setStrokeWidth(30); // Adjust stroke width as needed
 
         textPaint = new Paint();
         textPaint.setColor(Color.BLACK);
@@ -80,10 +80,10 @@ public class MyCustomAirportView extends View {
         drawRunwaySign(canvas, "24", endX, endY, startX, startY, false);
 
         // Draw Bravo taxiway (parallel to runway)
-        float bravoStartX = startX - 50; // Adjust leftward shift as needed
-        float bravoStartY = startY - 100; // Adjust distance from runway as needed
-        float bravoEndX = endX - 50;     // Adjust leftward shift as needed
-        float bravoEndY = endY - 100;     // Adjust distance from runway as needed
+        float bravoStartX = startX; // Adjust leftward shift as needed
+        float bravoStartY = startY - 110; // Adjust distance from runway as needed
+        float bravoEndX = endX;     // Adjust leftward shift as needed
+        float bravoEndY = endY - 110;     // Adjust distance from runway as needed
         paint.setColor(Color.BLUE); // Adjust color as needed
         canvas.drawLine(bravoStartX, bravoStartY, bravoEndX, bravoEndY, paint);
 
@@ -94,6 +94,60 @@ public class MyCustomAirportView extends View {
         float hotel1EndY = startY;        // Same Y-coordinate as runway's start
         paint.setColor(Color.GREEN);      // Adjust color as needed
         canvas.drawLine(hotel1StartX, hotel1StartY, hotel1EndX, hotel1EndY, paint);
+
+        // Draw Echo taxiway (connecting Bravo to runway, slightly farther from Hotel 1)
+        float echoStartX = bravoStartX + 200; // Start at Bravo
+        float echoStartY = hotel1StartY - 130; // Adjust Y-coordinate to be slightly farther from Hotel 1
+        float echoEndX = startX + 200;        // End at runway
+        float echoEndY = hotel1EndY - 130;  // Adjust Y-coordinate to be slightly farther from Hotel 1
+        paint.setColor(Color.MAGENTA); // Adjust color as needed
+        canvas.drawLine(echoStartX, echoStartY, echoEndX, echoEndY, paint);
+
+        // Draw Hotel 2 taxiway (connecting Bravo to runway at point 24)
+        float hotel2StartX = bravoEndX; // Start at Bravo's end towards Runway 24
+        float hotel2StartY = bravoEndY; // Same Y-coordinate as Bravo's end
+        float hotel2EndX = endX;        // End at runway point 24
+        float hotel2EndY = endY;        // Same Y-coordinate as runway's end
+        paint.setColor(Color.CYAN);    // Adjust color as needed
+        canvas.drawLine(hotel2StartX, hotel2StartY, hotel2EndX, hotel2EndY, paint);
+
+        // Draw Terminal 1 (parallel to Bravo, above the runway)
+        float terminal1X = bravoStartX + 50; // Adjust X-coordinate to the right of Bravo
+        float terminal1Y = bravoStartY - 350; // Move Terminal 1 further up
+        float terminal1Width = 200; // Terminal 1 width
+        float terminal1Height = 100; // Terminal 1 height
+        paint.setColor(Color.RED); // Adjust color as needed
+        canvas.drawRect(terminal1X, terminal1Y, terminal1X + terminal1Width, terminal1Y + terminal1Height, paint);
+
+// Draw Charlie 1 taxiway (connecting lower part of Terminal 1 to Bravo)
+        float charlie1StartX = terminal1X + terminal1Width / 2; // Center of Terminal 1
+        float charlie1StartY = terminal1Y + terminal1Height; // Lower part of Terminal 1
+        float charlie1EndX = charlie1StartX; // Vertical line directly above Terminal 1
+        float charlie1EndY = bravoStartY - 110; // Top of Bravo
+        paint.setColor(Color.DKGRAY); // Adjust color as needed
+        canvas.drawLine(charlie1StartX, charlie1StartY, charlie1EndX, charlie1EndY, paint);
+
+// Draw Terminal 2 (parallel to Bravo, above the runway)
+        float terminal2X = terminal1X + terminal1Width + 50; // Right next to Terminal 1
+        float terminal2Y = terminal1Y - 150; // Same Y-coordinate as Terminal 1
+        float terminal2Width = 200; // Terminal 2 width
+        float terminal2Height = 100; // Terminal 2 height
+        paint.setColor(Color.YELLOW); // Adjust color as needed
+        canvas.drawRect(terminal2X, terminal2Y, terminal2X + terminal2Width, terminal2Y + terminal2Height, paint);
+
+// Draw Charlie 2 taxiway (connecting lower part of Terminal 2 to Bravo)
+        float charlie2StartX = terminal2X + terminal2Width / 2; // Center of Terminal 2 horizontally
+        float charlie2StartY = terminal2Y + terminal2Height; // Lower part of Terminal 2
+
+// Calculate the endpoint on Bravo
+        float charlie2EndX = charlie2StartX; // Vertical line directly above Terminal 2
+        float charlie2EndY = bravoEndY; // Y-coordinate where you want it to connect on Bravo
+
+// Optionally adjust charlie2EndY to place the endpoint lower or higher as needed
+// charlie2EndY = bravoEndY - 50; // Example adjustment to lower the endpoint
+
+        paint.setColor(Color.DKGRAY); // Adjust color as needed
+        canvas.drawLine(charlie2StartX, charlie2StartY, charlie2EndX, charlie2EndY, paint);
 
         // Draw aircrafts
         paint.setColor(Color.RED); // Adjust color as needed

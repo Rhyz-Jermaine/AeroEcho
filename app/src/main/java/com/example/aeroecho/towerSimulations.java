@@ -29,4 +29,32 @@ public class towerSimulations extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onProfileButtonClick(View view) {
+
+        Intent intent = new Intent(this, profile.class);
+
+        startActivity(intent);
+    }
+
+    public void onHomeButtonClick(View view) {
+
+        Intent intent = new Intent(this, homePage.class);
+
+        startActivity(intent);
+    }
+
+    public void onModuleClick(View view) {
+
+        Intent intent = new Intent(this, help.class);
+
+        startActivity(intent);
+    }
+
+    public void onInfoButtonClick(View view) {
+
+        Intent intent = new Intent(this, help.class);
+
+        startActivity(intent);
+    }
+
 }

@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
 import android.widget.Toast;
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -40,10 +40,9 @@ public class loginstudent extends AppCompatActivity {
             return insets;
         });
 
-        setContentView(R.layout.activity_loginstudent);
-
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference("students");
+        // Change "Section 3" to your section path or dynamically set it based on some logic
+        mDatabase = FirebaseDatabase.getInstance().getReference("students").child("Section 3");
 
         loginstudUsername = findViewById(R.id.loginstudUsername);
         loginstudpass = findViewById(R.id.loginstudpass);
@@ -85,6 +84,7 @@ public class loginstudent extends AppCompatActivity {
                                 .addOnCompleteListener(loginstudent.this, task -> {
                                     if (task.isSuccessful()) {
                                         String uid = mAuth.getCurrentUser().getUid();
+                                        // Assuming "uid" is the child key under the section
                                         DatabaseReference userRef = mDatabase.child(uid);
                                         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override

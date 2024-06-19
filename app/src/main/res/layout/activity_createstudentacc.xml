@@ -68,7 +68,7 @@
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginAcc"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="45dp"
         android:layout_marginStart="50dp"/>
 
     <EditText
