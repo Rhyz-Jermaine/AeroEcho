@@ -38,14 +38,11 @@ public class Simulation_generated extends AppCompatActivity {
             }
         });
 
-        micButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    startVoiceInput();
-                }
-                return false;
+        micButton.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                startVoiceInput();
             }
+            return false;
         });
 
         findViewById(R.id.refreshButton).setOnClickListener(v -> airportView.refresh());
@@ -63,10 +60,17 @@ public class Simulation_generated extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-
-    private void speak(String text) {
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        if (requestCode == REQUEST_CODE_SPEECH_INPUT && resultCode == RESULT_OK && data != null) {
+            ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (result != null && !result.isEmpty()) {
+                String voiceCommand = result.get(0);
+                airportView.processVoiceCommand(voiceCommand);
+            }
+        }
     }
 
     @Override
