@@ -28,7 +28,7 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,24 +110,6 @@
         android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:id="@+id/studSignin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign in to continue"
-        android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="10sp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/loginstudUsername"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="45dp"
-        android:onClick="onSigninButtonClick"/>
-
-    <TextView
         android:id="@+id/textLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,7 +117,8 @@
         android:textColor="@color/lightblue"
         android:fontFamily="@font/aileron_bold"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@id/studSignin"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@id/textUsername"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

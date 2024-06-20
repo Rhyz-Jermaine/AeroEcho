@@ -30,7 +30,7 @@
         android:id="@+id/adminName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADMIN"
+        android:text="INSTRUCTOR NAME"
         android:textSize="16dp"
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/white"
