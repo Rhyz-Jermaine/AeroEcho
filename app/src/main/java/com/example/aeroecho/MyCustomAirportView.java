@@ -174,6 +174,7 @@ public class MyCustomAirportView extends View {
         float charlie2EndY = charlie1EndY; // Top of Bravo
         paint.setColor(Color.GRAY); // Adjust color as needed
         canvas.drawLine(charlie2StartX, charlie2StartY, charlie2EndX, charlie2EndY, paint);
+
         // Draw the aircraft
         paint.setColor(Color.RED);
         canvas.drawCircle(aircraft.getX(), aircraft.getY(), 20, paint);
@@ -303,5 +304,22 @@ public class MyCustomAirportView extends View {
     // Add the refresh method
     public void refresh() {
         invalidate();
+    }
+
+    // Add the processVoiceCommand method
+    public void processVoiceCommand(String voiceCommand) {
+        // Handle the voice command and perform corresponding actions
+        // Example commands could be "move to terminal 1", "move to charlie 1", etc.
+        String command = voiceCommand.toLowerCase();
+
+        if (taxiways.containsKey(command)) {
+            Taxiway taxiway = taxiways.get(command);
+            path = new ArrayList<>();
+            path.add(new float[]{taxiway.getX(), taxiway.getY()});
+            pathIndex = 0;
+            handler.postDelayed(this::invalidate, 1000);
+        } else {
+            speakCommand("Command not recognized.");
+        }
     }
 }
