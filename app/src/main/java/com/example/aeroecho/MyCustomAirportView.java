@@ -30,12 +30,20 @@ public class MyCustomAirportView extends View {
         super(context);
         this.context = context;
         init();
+
+        String voiceCommand = "philippine 1 2 3 runway 06";
+        simulateVoiceCommand(voiceCommand);
     }
 
     public MyCustomAirportView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         init();
+    }
+
+    public void simulateVoiceCommand(String voiceCommand) {
+        // Pass the voice command to your processing method
+        processVoiceCommand(voiceCommand);
     }
 
     private void init() {
@@ -78,8 +86,8 @@ public class MyCustomAirportView extends View {
         taxiways.put("hotel 1", new Taxiway("hotel 1", 400, 500));
         taxiways.put("echo", new Taxiway("echo", 600, 500));
         taxiways.put("hotel 2", new Taxiway("hotel 2", 800, 500));
-        taxiways.put("runway_06", new Taxiway("runway_06", 200, 650));
-        taxiways.put("runway_24", new Taxiway("runway_24", 600, 450));
+        taxiways.put("runway 06", new Taxiway("runway 06", 200, 650));
+        taxiways.put("runway 24", new Taxiway("runway 24", 600, 450));
     }
 
     @Override
@@ -104,12 +112,6 @@ public class MyCustomAirportView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(20); // Adjust stroke width as needed
         canvas.drawLine(startX, startY, endX, endY, paint);
-
-        // Draw "06" sign
-        drawRunwaySign(canvas, "06", startX, startY, endX, endY, true);
-
-        // Draw "24" sign
-        drawRunwaySign(canvas, "24", endX, endY, startX, startY, false);
 
         // Draw Bravo taxiway (parallel to runway)
         float bravoStartX = startX; // Adjust leftward shift as needed
@@ -182,7 +184,7 @@ public class MyCustomAirportView extends View {
         // Draw wind information
         if (windCommand != null) {
             textPaint.setColor(Color.BLACK);
-            canvas.drawText(windCommand, centerX, centerY, textPaint);
+            canvas.drawText(windCommand, centerX, 50, textPaint);
         }
 
         // Move the aircraft along the path if defined
@@ -194,30 +196,10 @@ public class MyCustomAirportView extends View {
     }
 
 
-    private void drawRunwaySign(Canvas canvas, String text, float startX, float startY, float endX, float endY, boolean isStart) {
-        float signX = (startX + endX) / 2;
-        float signY = (startY + endY) / 2;
-
-        // Adjust for text position relative to the runway
-        if (isStart) {
-            signX -= 200; // Adjust as needed
-            signY += 50;  // Adjust as needed
-        } else {
-            signX += 200; // Adjust as needed
-            signY -= 50;  // Adjust as needed
-        }
-
-        textPaint.setColor(Color.WHITE); // Adjust color as needed
-        textPaint.setTextSize(80);       // Adjust text size as needed
-        textPaint.setTextAlign(Paint.Align.CENTER);
-
-        // Draw the text
-        canvas.drawText(text, signX, signY, textPaint);
-    }
 
     public void setFixedWindCommand() {
         // Set a fixed wind command for demonstration purposes
-        windCommand = "Wind 270 at 15 knots";
+        windCommand = "Wind 45 at 10 knots";
         invalidate();
     }
 
@@ -306,20 +288,57 @@ public class MyCustomAirportView extends View {
         invalidate();
     }
 
-    // Add the processVoiceCommand method
     public void processVoiceCommand(String voiceCommand) {
         // Handle the voice command and perform corresponding actions
         // Example commands could be "move to terminal 1", "move to charlie 1", etc.
         String command = voiceCommand.toLowerCase();
 
-        if (taxiways.containsKey(command)) {
-            Taxiway taxiway = taxiways.get(command);
-            path = new ArrayList<>();
-            path.add(new float[]{taxiway.getX(), taxiway.getY()});
-            pathIndex = 0;
-            handler.postDelayed(this::invalidate, 1000);
+        // Split the command into parts
+        String[] parts = command.split("\\s+");
+
+        // Flag to track if a valid command is found
+        boolean validCommandFound = true;
+
+        // Process each pair of parts
+        for (int i = 0; i < parts.length - 1; i += 2) {
+            String key = parts[i] + " " + parts[i + 1]; // Combine pairs as the key
+
+            if (taxiways.containsKey(key)) {
+                Taxiway taxiway = taxiways.get(key);
+                path = new ArrayList<>();
+                path.add(new float[]{taxiway.getX(), taxiway.getY()});
+                pathIndex = 0;
+                handler.postDelayed(this::invalidate, 1000);
+            } else {
+                validCommandFound = false;
+                break; // Exit the loop on first wrong command found
+            }
+        }
+
+        // Handle responses based on detected conditions
+        if (validCommandFound) {
+            speakCommand("Affirmative.");
         } else {
-            speakCommand("Command not recognized.");
+            StringBuilder feedback = new StringBuilder("Wrong taxi. Suggested commands: ");
+
+            // Iterate through each pair of parts
+            for (int i = 0; i < parts.length - 1; i += 2) {
+                String key = parts[i] + " " + parts[i + 1]; // Combine pairs as the key
+
+                if (taxiways.containsKey(key)) {
+                    feedback.append(parts[i]).append(" ").append(parts[i + 1]).append(", ");
+                }
+            }
+
+            // Remove the last comma and space
+            if (feedback.length() > 2) {
+                feedback.setLength(feedback.length() - 2);
+            }
+
+            speakCommand(feedback.toString());
         }
     }
+
+
+
 }
