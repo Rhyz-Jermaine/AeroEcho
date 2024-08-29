@@ -38,7 +38,7 @@ public class createstudentacc extends AppCompatActivity {
         setContentView(R.layout.activity_createstudentacc);
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference("students");
+        mDatabase = FirebaseDatabase.getInstance().getReference("students/Section 3");
 
         createStudUser = findViewById(R.id.createStudUser);
         createEmail = findViewById(R.id.createEmail);
