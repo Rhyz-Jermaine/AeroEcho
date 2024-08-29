@@ -42,7 +42,7 @@ public class loginstudent extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         // Change "Section 3" to your section path or dynamically set it based on some logic
-        mDatabase = FirebaseDatabase.getInstance().getReference("students").child("Section 3");
+        mDatabase = FirebaseDatabase.getInstance().getReference("students");
 
         loginstudUsername = findViewById(R.id.loginstudUsername);
         loginstudpass = findViewById(R.id.loginstudpass);
