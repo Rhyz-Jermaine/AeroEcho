@@ -37,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onCreateButtonClick(View view) {
+
+        Intent intent = new Intent(this, createstudentacc.class);
+
+        startActivity(intent);
+    }
+
     public void onAdminButtonClick(View view) {
 
         Intent intent = new Intent(this, loginadmin.class);
